@@ -12,6 +12,7 @@ export interface ForecastDay {
   windSpeed?: number;
   pressure?: number;
   visibility?: number;
+  elevation?: number; // New field for elevation data
 }
 
 interface WeatherStationProps {
@@ -70,6 +71,12 @@ export const WeatherStation: React.FC<WeatherStationProps> = ({ location, foreca
             label="Visibility" 
             value={today.visibility ? `${today.visibility} km` : '--'} 
           />
+          {today.elevation !== undefined && (
+            <WeatherStatCard 
+              label="Elevation" 
+              value={`${today.elevation} m`} 
+            />
+          )}
         </div>
       </div>
 
