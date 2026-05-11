@@ -11,6 +11,7 @@ export interface Product {
   stock: number;
   image_url?: string;
   description: string;
+  status: string; // 1. ADD THIS FIELD HERE
   created_at?: string;
 }
 
@@ -21,12 +22,12 @@ export interface Database {
       products: {
         Row: Product; 
         Insert: Omit<Product, 'id' | 'created_at'>;
-        Update: Partial<Omit<Product, 'id' | 'created_at'>>;
+        // 2. This Update type now automatically includes status
+        Update: Partial<Omit<Product, 'id' | 'created_at'>>; 
       };
     };
   };
 }
-
 // These values come from your Supabase Dashboard
 // Project Settings > API
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;

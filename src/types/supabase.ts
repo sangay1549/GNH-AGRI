@@ -22,12 +22,19 @@ export type Database = {
           id: number
           ideal_ph_max: number | null
           ideal_ph_min: number | null
+          lunar: string | null
           market_demand_level: string | null
+          max_temp: number | null
           min_rainfall_mm: number | null
+          min_temp: number | null
+          modern: string | null
+          modern_window: string | null
           name: string
           optimal_altitude_meters: number | null
           planting_season: string | null
+          progress: number | null
           recommendation_reason: string | null
+          status: string | null
           steps: Json | null
           tools: Json | null
         }
@@ -38,12 +45,19 @@ export type Database = {
           id?: number
           ideal_ph_max?: number | null
           ideal_ph_min?: number | null
+          lunar?: string | null
           market_demand_level?: string | null
+          max_temp?: number | null
           min_rainfall_mm?: number | null
+          min_temp?: number | null
+          modern?: string | null
+          modern_window?: string | null
           name: string
           optimal_altitude_meters?: number | null
           planting_season?: string | null
+          progress?: number | null
           recommendation_reason?: string | null
+          status?: string | null
           steps?: Json | null
           tools?: Json | null
         }
@@ -54,12 +68,19 @@ export type Database = {
           id?: number
           ideal_ph_max?: number | null
           ideal_ph_min?: number | null
+          lunar?: string | null
           market_demand_level?: string | null
+          max_temp?: number | null
           min_rainfall_mm?: number | null
+          min_temp?: number | null
+          modern?: string | null
+          modern_window?: string | null
           name?: string
           optimal_altitude_meters?: number | null
           planting_season?: string | null
+          progress?: number | null
           recommendation_reason?: string | null
+          status?: string | null
           steps?: Json | null
           tools?: Json | null
         }
@@ -83,6 +104,36 @@ export type Database = {
           id?: string
           steps?: Json
           tools?: Json
+        }
+        Relationships: []
+      }
+      crop_wisdom: {
+        Row: {
+          advice: string | null
+          crop_name: string
+          gregorian_end: string | null
+          gregorian_start: string | null
+          id: string
+          lunar_month_end: number | null
+          lunar_month_start: number | null
+        }
+        Insert: {
+          advice?: string | null
+          crop_name: string
+          gregorian_end?: string | null
+          gregorian_start?: string | null
+          id?: string
+          lunar_month_end?: number | null
+          lunar_month_start?: number | null
+        }
+        Update: {
+          advice?: string | null
+          crop_name?: string
+          gregorian_end?: string | null
+          gregorian_start?: string | null
+          id?: string
+          lunar_month_end?: number | null
+          lunar_month_start?: number | null
         }
         Relationships: []
       }
@@ -151,6 +202,30 @@ export type Database = {
           name?: string
           station?: string | null
           temp?: number | null
+        }
+        Relationships: []
+      }
+      dzongkhagweather: {
+        Row: {
+          elevation_meters: number | null
+          id: number
+          latitude: number
+          longitude: number
+          name: string
+        }
+        Insert: {
+          elevation_meters?: number | null
+          id?: number
+          latitude: number
+          longitude: number
+          name: string
+        }
+        Update: {
+          elevation_meters?: number | null
+          id?: number
+          latitude?: number
+          longitude?: number
+          name?: string
         }
         Relationships: []
       }
@@ -262,6 +337,9 @@ export type Database = {
           image_url: string | null
           name: string
           price: number
+          seller_id: string | null
+          sold_count: number | null
+          status: string | null
           stock: number | null
           unit: string
         }
@@ -273,6 +351,9 @@ export type Database = {
           image_url?: string | null
           name: string
           price: number
+          seller_id?: string | null
+          sold_count?: number | null
+          status?: string | null
           stock?: number | null
           unit: string
         }
@@ -284,8 +365,35 @@ export type Database = {
           image_url?: string | null
           name?: string
           price?: number
+          seller_id?: string | null
+          sold_count?: number | null
+          status?: string | null
           stock?: number | null
           unit?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          email: string | null
+          full_name: string | null
+          id: string
+          role: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          email?: string | null
+          full_name?: string | null
+          id: string
+          role?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          updated_at?: string | null
         }
         Relationships: []
       }
